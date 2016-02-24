@@ -1,4 +1,4 @@
-atom-dyndocker
+atom-dyndoc
 ==================
 
-Dyndoc-docker for atom editor
+Dyndoc for atom editor
