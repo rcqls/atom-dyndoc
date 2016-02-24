@@ -1,0 +1,32 @@
+'menu': [
+  'label': 'Packages'
+  'submenu': [
+    'label': 'Dyndoc'
+    'submenu': [
+    	{
+    		'label': 'Toggle Viewer'
+    		'command': 'dyndoc:toggle'
+    	},
+    	{
+    		'label': 'Eval Dyndoc'
+    		'command': 'dyndoc:eval'
+    	},
+      {
+        'label': 'Task Dyn->Tex->Pdf'
+        'command': 'dyndoc:task-write-dyn2tex2pdf'
+      },
+      {
+        'label': 'Task Dyn->Html (client)'
+        'command': 'dyndoc:task-write-dyn2html-cli'
+      },
+      {
+        'label': 'Task Dyn->Html'
+        'command': 'dyndoc:task-write-dyn2html'
+      },
+      {
+        'label': 'Atom Dyndoc'
+        'command': 'dyndoc:atom-dyndoc'
+      }
+    ]
+  ]
+]

@@ -1,0 +1,30 @@
+{
+  "name": "dyndoc",
+  "main": "./lib/main",
+  "version": "0.3.4",
+  "description": "dyndoc from atom",
+  "activationCommands": {
+    "atom-workspace": [
+      "dyndoc:eval",
+      "dyndoc:atom-dyndoc",
+      "dyndoc:compile",
+      "dyndoc:task-write-dyn2tex2pdf",
+      "dyndoc:task-write-dyn2html-cli",
+      "dyndoc:task-write-dyn2html",
+      "dyndoc:toggle",
+      "dyndoc:restart"
+    ]
+  },
+  "repository": "https://github.com/rcqls/atom-dyndoc",
+  "license": "LGPL",
+  "engines": {
+    "atom": ">1.0.0"
+  },
+  "dependencies": {
+    "atom-space-pen-views": "^2.0.0",
+    "net": ">1.0.0",
+    "fs-plus": "2.x",
+    "underscore-plus": "1.x",
+    "coffee-script": "1.7.x"
+  }
+}

@@ -1,0 +1,37 @@
+# Keybindings require three things to be fully defined: A selector that is
+# matched against the focused element, the keystroke and the command to
+# execute.
+#
+# Below is a basic keybinding which registers on all platforms by applying to
+# the root workspace element.
+
+# For more detailed documentation see
+# https://www.atom.io/docs/latest/advanced/keymaps
+
+'.platform-darwin atom-workspace':
+  'cmd-alt-r t': 'dyndoc:task-write-dyn2tex2pdf'
+  'cmd-alt-r h': 'dyndoc:task-write-dyn2html-cli'
+  'cmd-alt-x d': 'dyndoc:eval'
+  'cmd-alt-x a': 'dyndoc:atom-dyndoc'
+  'cmd-alt-x t': 'dyndoc:toggle'
+
+'.platform-win32 atom-workspace, .platform-linux atom-workspace':
+  'alt-r t': 'dyndoc:task-write-dyn2tex2pdf'
+  'alt-r h': 'dyndoc:task-write-dyn2html-cli'
+  'ctrl-alt-x d': 'dyndoc:eval'
+  'ctrl-alt-x a': 'dyndoc:atom-dyndoc'
+  'ctrl-alt-x t': 'dyndoc:toggle'
+
+'.platform-darwin .dyndoc':
+  'cmd-+': 'dyndoc:zoom-in'
+  'cmd-=': 'dyndoc:zoom-in'
+  'cmd--': 'dyndoc:zoom-out'
+  'cmd-_': 'dyndoc:zoom-out'
+  'cmd-0': 'dyndoc:reset-zoom'
+
+'.platform-win32 .dyndoc, .platform-linux .dyndoc':
+  'ctrl-+': 'dyndoc:zoom-in'
+  'ctrl-=': 'dyndoc:zoom-in'
+  'ctrl--': 'dyndoc:zoom-out'
+  'ctrl-_': 'markdown:zoom-out'
+  'ctrl-0': 'dyndoc:reset-zoom'
