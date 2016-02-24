@@ -7,12 +7,10 @@
     "atom-workspace": [
       "dyndoc:eval",
       "dyndoc:atom-dyndoc",
-      "dyndoc:compile",
       "dyndoc:task-write-dyn2tex2pdf",
       "dyndoc:task-write-dyn2html-cli",
       "dyndoc:task-write-dyn2html",
-      "dyndoc:toggle",
-      "dyndoc:restart"
+      "dyndoc:toggle"
     ]
   },
   "repository": "https://github.com/rcqls/atom-dyndoc",
