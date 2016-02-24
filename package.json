@@ -1,7 +1,7 @@
 {
   "name": "dyndoc",
   "main": "./lib/main",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "dyndoc from atom",
   "activationCommands": {
     "atom-workspace": [
