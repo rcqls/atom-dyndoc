@@ -12,4 +12,5 @@
 *.OLD
 *#
 *.gem
+*.log
 node_modules/
