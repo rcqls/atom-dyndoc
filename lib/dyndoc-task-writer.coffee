@@ -19,7 +19,7 @@ module.exports =
     content = fs.readFileSync(default_file).toString('utf-8')
     #console.log "content:"+content
     sys_root_path=fs.readFileSync(path.join(user_home,".dyntask","etc","sys_root_path")).toString('utf-8')
-    rel_workdir=path.relative(sys_root_path,dir)
+    rel_workdir=path.relative(sys_root_path,dir).replace "\\","/"
     task = @task_type(content)
     if task
       task_filename = path.join(run_dir,base+".task_"+task)
