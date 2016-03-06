@@ -1,13 +1,14 @@
 path = require 'path'
 
 {Emitter, Disposable, CompositeDisposable} = require 'atom'
+{allowUnsafeEval} = require 'loophole'
 {$, $$$, ScrollView} = require 'atom-space-pen-views'
 
 _ = require 'underscore-plus'
 fs = require 'fs-plus'
 # {File} = require 'pathwatcher'
 
-rendererDyndoc = require './render-dyndoc'
+rendererDyndoc = allowUnsafeEval -> require './render-dyndoc'
 
 module.exports =
 class DyndocViewer extends ScrollView

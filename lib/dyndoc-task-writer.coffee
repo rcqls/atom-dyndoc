@@ -14,11 +14,15 @@ module.exports =
     base = path.basename filename,ext
     user_home = process.env[if process.platform == "win32" then "USERPROFILE" else "HOME"]
     default_file = path.join(user_home,".dyntask","share")
+    run_dir = path.join(user_home,".dyntask","run")
     default_file = path.join(default_file,"tasks","task_" + mode + ".rb")
     content = fs.readFileSync(default_file).toString('utf-8')
     #console.log "content:"+content
+    sys_root_path=fs.readFileSync(path.join(user_home,".dyntask","etc","sys_root_path")).toString('utf-8')
+    rel_workdir=path.relative(sys_root_path,dir)
     task = @task_type(content)
     if task
-      task_filename = path.join(dir,base+".task_"+task)
-      content = content.replace /\%basename\%/g,"%"+base
+      task_filename = path.join(run_dir,base+".task_"+task)
+      content = content.replace /\%basename\%/g, base
+      content = content.replace /\%workdir\%/g, rel_workdir
       fs.writeFileSync task_filename, content
