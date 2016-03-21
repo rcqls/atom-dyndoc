@@ -10,7 +10,8 @@
       "dyndoc:task-write-dyn2tex2pdf",
       "dyndoc:task-write-dyn2html-cli",
       "dyndoc:task-write-dyn2html",
-      "dyndoc:toggle"
+      "dyndoc:toggle",
+      "dyndoc:check-dyn-server"
     ]
   },
   "repository": "https://github.com/rcqls/atom-dyndoc",
@@ -25,6 +26,13 @@
     "fs-plus": "2.x",
     "underscore-plus": "1.x",
     "shelljs": ">0.5.0",
-    "coffee-script": "1.7.x"
+    "coffee-script": "1.7.x",
+    "language-dyndoc": ">0.0.5",
+    "asciidoc-preview": ">0.6.0",
+    "pdf-view": ">0.50.0",
+    "language-r": ">0.4.0",
+    "language-latex": ">0.6.1",
+    "language-textile": ">0.2.0"
+
   }
 }

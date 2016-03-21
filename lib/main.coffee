@@ -1,6 +1,7 @@
 url = require 'url'
 path = require 'path'
 fs = require 'fs'
+shell = require 'shelljs'
 
 dyndoc_viewer = null
 DyndocViewer = require './dyndoc-viewer' #null # Defer until used
@@ -71,6 +72,10 @@ module.exports =
         @coffee()
       'dyndoc:toggle': =>
         @toggle()
+      'dyndoc:check-dyn-server': =>
+        @checkDynServer()
+      'dyndoc:check-dyntask-server': =>
+        @checkDyntaskServer()
       'dyndoc:toggle-break-on-single-newline': ->
         keyPath = 'dyndoc.breakOnSingleNewline'
         atom.config.set(keyPath,!atom.config.get(keyPath))
@@ -126,6 +131,19 @@ module.exports =
         #fs.writeFile "/Users/remy/test_atom.coffee", content, (error) ->
         #  console.error("Error writing file", error) if error
         rendererCoffee.eval content
+
+  checkDynServer: ->
+    #remote = require "remote"
+    #dialog = remote.require "dialog"
+
+    #dialog.showOpenDialog({properties:['openFile']})
+    #dialog.showMessageBox({title: "toto",message: "coucou",buttons:["Ok"]})
+    #dialog.showErrorBox("toto","titi")
+
+
+    shell.exec 'dyn-daemon status', (code, output) ->
+      res=output.split("|")
+      alert "Dyn Server -> "+res[0] + "\n" + "DynTask Server -> "+res[1]
 
   eval: ->
     return unless dyndoc_viewer

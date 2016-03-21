@@ -26,6 +26,10 @@
       {
         'label': 'Atom Dyndoc'
         'command': 'dyndoc:atom-dyndoc'
+      },
+      {
+        'label': 'Check Dyn Server'
+        'command': 'dyndoc:check-dyn-server'
       }
     ]
   ]
