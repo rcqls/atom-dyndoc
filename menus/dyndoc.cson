@@ -30,6 +30,10 @@
       {
         'label': 'Check Dyn Server'
         'command': 'dyndoc:check-dyn-server'
+      },
+      {
+        'label': 'Start Dyn Server'
+        'command': 'dyndoc:start-dyn-server'
       }
     ]
   ]

@@ -92,6 +92,7 @@ class DyndocViewer extends ScrollView
 
     changeHandler = =>
       #@renderDyndoc()
+      console.log @getURI()
       pane = atom.workspace.paneForURI(@getURI())
       if pane? and pane isnt atom.workspace.getActivePane()
         pane.activateItem(this)
@@ -100,7 +101,7 @@ class DyndocViewer extends ScrollView
       @disposables.add @file.onDidChange(changeHandler)
     else if @editor?
       @disposables.add @editor.getBuffer().onDidStopChanging =>
-        changeHandler() if atom.config.get 'dyndoc-viewer.liveUpdate'
+        changeHandler() if atom.config.get 'dyndoc.liveUpdate'
       @disposables.add  @editor.onDidChangePath => @emitter.emit 'did-title-changed'
       @disposables.add @editor.getBuffer().onDidSave =>
         changeHandler() unless atom.config.get 'dyndoc.liveUpdate'

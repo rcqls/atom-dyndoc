@@ -74,8 +74,8 @@ module.exports =
         @toggle()
       'dyndoc:check-dyn-server': =>
         @checkDynServer()
-      'dyndoc:check-dyntask-server': =>
-        @checkDyntaskServer()
+      'dyndoc:start-dyn-server': =>
+        @startDynServer()
       'dyndoc:toggle-break-on-single-newline': ->
         keyPath = 'dyndoc.breakOnSingleNewline'
         atom.config.set(keyPath,!atom.config.get(keyPath))
@@ -83,6 +83,18 @@ module.exports =
 
     #atom.workspaceView.on 'dyndoc:preview-file', (event) =>
     #  @previewFile(event)
+
+    atom.workspace.observeTextEditors (editor) ->
+      editor.onDidSave ->
+        fp = editor.getPath()
+        buildsh = path.join(path.dirname(fp),"build.sh")
+        if path.extname(fp) == ".dyn" and fs.existsSync(buildsh)
+          console.log buildsh
+          cmd="cd "+path.dirname(fp)+";dyn-cli talkRR2016.dyn > ../../build/talkRR2016.html"
+          shell.exec cmd, (code, output) ->
+            console.log output
+            if code != 0
+              atom.notifications.addInfo buildsh + " -> "+code
 
     console.log "end activate!!!"
 
@@ -143,7 +155,14 @@ module.exports =
 
     shell.exec 'dyn-daemon status', (code, output) ->
       res=output.split("|")
-      alert "Dyn Server -> "+res[0] + "\n" + "DynTask Server -> "+res[1]
+      atom.notifications.addInfo "Dyn Server -> "+res[0] + '<br/>' + "DynTask Server -> "+res[1]
+
+  startDynServer: ->
+
+    shell.exec 'dyn-daemon srv start;dyn-daemon status', (code, output) ->
+      res=output.split("|")
+      atom.notifications.addInfo "Dyn Server -> "+res[0] + '<br/>' + "DynTask Server -> "+res[1]
+
 
   eval: ->
     return unless dyndoc_viewer

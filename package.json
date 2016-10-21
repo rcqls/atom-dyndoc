@@ -11,7 +11,8 @@
       "dyndoc:task-write-dyn2html-cli",
       "dyndoc:task-write-dyn2html",
       "dyndoc:toggle",
-      "dyndoc:check-dyn-server"
+      "dyndoc:check-dyn-server",
+      "dyndoc:start-dyn-server"
     ]
   },
   "repository": "https://github.com/rcqls/atom-dyndoc",
